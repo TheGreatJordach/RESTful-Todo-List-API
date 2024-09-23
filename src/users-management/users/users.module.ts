@@ -7,6 +7,7 @@ import { WriteUserController } from "./write/write-user.controller";
 @Module({
   providers:[WriteUserService],
   imports:[TypeOrmModule.forFeature([User])],
-  controllers:[WriteUserController]
+  controllers:[WriteUserController],
+  exports:[WriteUserService]
 })
 export class UsersModule{}

@@ -1,8 +1,9 @@
-import { InternalServerErrorException, Module } from "@nestjs/common";
+import { InternalServerErrorException, Module, ValidationPipe } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 
 import { CacheModule } from "@nestjs/cache-manager";
 import * as process from "node:process";
+import { APP_PIPE } from "@nestjs/core";
 
 @Module({
   imports:[ConfigModule.forRoot({isGlobal: true, envFilePath: '.env', cache:true}),
@@ -30,7 +31,18 @@ import * as process from "node:process";
         ttl,
         max      }
     }
-  })
-  ],
+  })],
+  providers:[
+    {
+    provide: APP_PIPE,
+    useValue:new ValidationPipe({
+      whitelist:true,
+      forbidNonWhitelisted:true,
+      transform:true,
+      transformOptions:{
+        enableImplicitConversion:true
+      }
+    })
+  }]
 })
 export class AppConfigModule {}
