@@ -1,7 +1,7 @@
 import { plainToInstance } from "class-transformer";
 import { validateSync } from "class-validator";
 import { InternalServerErrorException } from "@nestjs/common";
-import { IsNonEmptyString, IsPositiveInt } from "../../common/decorators/is-non-empty-string";
+import { IsNonEmptyString, IsPositiveInt } from "../../../common/decorators/is-non-empty-string";
 
 
 export class ValidateEnv {

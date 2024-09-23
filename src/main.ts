@@ -1,5 +1,7 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
+import { ConfigService } from "@nestjs/config";
+import { config } from "webpack";
 
 declare const module: any;
 
@@ -11,6 +13,11 @@ async function bootstrap() {
     module.hot.dispose(() => app.close());
   }
 
-  await app.listen(3000);
+ const configService = app.get(ConfigService);
+ const port: number = configService.get<number>("APP_PORT")
+ const prefix:string = configService.get<string>("APP_PREFIX")
+
+  app.setGlobalPrefix(prefix)
+  await app.listen(port);
 }
 bootstrap();
