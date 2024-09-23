@@ -1,8 +1,8 @@
-import { TodoTask } from '@tasks/entity/todo-entity';
-
-import { IsEmail, ValidateNested } from "class-validator";
-import { Type } from "class-transformer";
 import { IsNonEmptyString } from "@common/decorators/is-non-empty-string";
+import { IsEmail, ValidateNested } from "class-validator";
+import { TodoTask } from "../../../todo-management/tasks/entity/todo-entity";
+import { Type } from "class-transformer";
+
 
 export class BaseUserDto {
   @IsNonEmptyString()

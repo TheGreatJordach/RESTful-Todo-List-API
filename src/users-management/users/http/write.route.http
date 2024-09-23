@@ -1,0 +1,18 @@
+
+### UPDATE
+PATCH http://localhost:3000/V1/api/write/user/1
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+### DELETE
+DELETE http://localhost:3000/v1/api/write/user/2
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}

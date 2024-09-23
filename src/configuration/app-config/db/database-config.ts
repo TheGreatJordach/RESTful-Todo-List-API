@@ -1,9 +1,9 @@
 import { ConfigService } from "@nestjs/config";
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
 import { DataSource } from "typeorm";
-import { TodoTask } from "@tasks/entity/todo-entity";
+import { TodoTask } from "../../../todo-management/tasks/entity/todo-entity";
 import { VersionTask } from "@versions/entity/version-entity";
-import { User } from "@users/entity/user-entity";
+import { User } from "../../../users-management/users/entity/user-entity";
 
 
 export const databaseConfig = async (configService: ConfigService):Promise<TypeOrmModuleOptions> => ({

@@ -1,5 +1,5 @@
 import { VersionInterface } from "@versions/dtos/version-interface";
-import { TodoTask } from "@tasks/entity/todo-entity";
+import { TodoTask } from "../../todo-management/tasks/entity/todo-entity";
 import { IsNonEmptyString } from "@common/decorators/is-non-empty-string";
 import { Type } from "class-transformer";
 import { IsNotEmpty, IsNumber, ValidateNested } from "class-validator";

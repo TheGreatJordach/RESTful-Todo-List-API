@@ -1,5 +1,5 @@
 import { VersionTask } from "@versions/entity/version-entity";
-import { User } from "@users/entity/user-entity";
+import { User } from "../../../users-management/users/entity/user-entity";
 
 export interface TodoInterface {
   readonly title: string;

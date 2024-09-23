@@ -1,4 +1,4 @@
-import { BaseUserDto } from "@users/dtos/base-user.dto";
+import { BaseUserDto } from "./base-user.dto";
 import { IsStrongPassword } from "class-validator";
 
 export class CreateUserDto extends BaseUserDto{

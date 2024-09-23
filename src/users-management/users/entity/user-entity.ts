@@ -1,11 +1,11 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { RegistryDate } from "../../common/embedded/registry-date";
-import { TodoTask } from "@tasks/entity/todo-entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { RegistryDate } from "@common/embedded/registry-date";
+import { TodoTask } from "../../../todo-management/tasks/entity/todo-entity";
 
 @Entity("users")
 export class User{
   @PrimaryGeneratedColumn()
-  id: number
+  userID: number
   @Column()
   name: string
   @Column({unique:true,nullable:false})

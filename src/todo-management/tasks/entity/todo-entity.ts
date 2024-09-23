@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "../../users/entity/user-entity";
+import { User } from "../../../users-management/users/entity/user-entity";
 import { RegistryDate } from "@common/embedded/registry-date";
 import { VersionTask } from "@versions/entity/version-entity";
 

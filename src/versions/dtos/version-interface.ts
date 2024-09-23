@@ -1,4 +1,4 @@
-import { TodoTask } from "@tasks/entity/todo-entity";
+import { TodoTask } from "../../todo-management/tasks/entity/todo-entity";
 
 export interface VersionInterface {
   readonly versionNumber: number;

@@ -3,13 +3,15 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { AppConfigModule } from './configuration/app-config/app.config.module';
 import { DatabaseModule } from './database/database.module';
-import { UsersModule } from './users/users.module';
-import { TasksModule } from './tasks/tasks.module';
-import { VersionsModule } from './versions/versions.module';
+import { TodoManagementModule } from './todo-management/todo-management.module';
+import { UsersManagementModule } from './users-management/users-management.module';
+
+
+
 
 
 @Module({
-  imports: [AppConfigModule, DatabaseModule, UsersModule, TasksModule, VersionsModule],
+  imports: [AppConfigModule, DatabaseModule, TodoManagementModule, UsersManagementModule],
   controllers: [AppController],
   providers: [AppService],
 })

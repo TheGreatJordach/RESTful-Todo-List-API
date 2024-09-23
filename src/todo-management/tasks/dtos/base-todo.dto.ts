@@ -1,5 +1,5 @@
-import { Status, TodoInterface } from "@tasks/dtos/todo-interface";
-import { User } from "@users/entity/user-entity";
+import { Status, TodoInterface } from "./todo-interface";
+import { User } from "../../../users-management/users/entity/user-entity";
 import { VersionTask } from "@versions/entity/version-entity";
 import { IsNonEmptyString } from "@common/decorators/is-non-empty-string";
 import { IsBoolean, IsDate, IsEnum, IsOptional, ValidateNested } from "class-validator";
