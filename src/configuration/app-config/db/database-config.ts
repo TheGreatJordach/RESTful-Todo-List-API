@@ -1,6 +1,9 @@
 import { ConfigService } from "@nestjs/config";
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
 import { DataSource } from "typeorm";
+import { TodoTask } from "@tasks/entity/todo-entity";
+import { VersionTask } from "@versions/entity/version-entity";
+import { User } from "@users/entity/user-entity";
 
 
 export const databaseConfig = async (configService: ConfigService):Promise<TypeOrmModuleOptions> => ({
@@ -12,8 +15,7 @@ export const databaseConfig = async (configService: ConfigService):Promise<TypeO
    database: configService.getOrThrow<string>("DATASOURCE_DATABASE"),
    synchronize: true,
    logging: false,
-   entities:[]
-
+   entities:[User,TodoTask,VersionTask]
   }
 
   )
