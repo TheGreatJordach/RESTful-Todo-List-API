@@ -3,6 +3,17 @@ POST http://localhost:3000/v1/api/register
 Content-Type: application/json
 
 {
-  "id": 999,
-  "value": "content"
+  "name": "Jordach Makaya",
+  "email": "jordach@content.co",
+  "password":"PassWord@201"
+}
+
+
+### LOGIN
+POST http://localhost:3000/v1/api/login
+Content-Type: application/json
+
+{
+  "email": "jordach@content.co",
+  "password":"PassWord@201"
 }

@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { UsersModule } from "./users/users.module";
+import { UserModule } from "./users/userModule";
 import { AuthModule } from "./auth/auth.module";
 import { UserRegistrationController } from "./registration/user-registration.controller";
 import { UserRegistrationService } from "./registration/user-registration.service";
@@ -7,6 +7,6 @@ import { UserRegistrationService } from "./registration/user-registration.servic
 @Module({
  controllers: [UserRegistrationController],
  providers: [UserRegistrationService],
- imports: [UsersModule, AuthModule],
+ imports: [UserModule, AuthModule],
 })
 export class UsersManagementModule {}

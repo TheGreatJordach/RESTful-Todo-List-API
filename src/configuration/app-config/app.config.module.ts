@@ -32,8 +32,7 @@ import { APP_PIPE } from "@nestjs/core";
         max      }
     }
   })],
-  providers:[
-    {
+  providers: [{
     provide: APP_PIPE,
     useValue:new ValidationPipe({
       whitelist:true,

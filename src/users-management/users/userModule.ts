@@ -3,11 +3,12 @@ import { WriteUserService } from "./write/write-user.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { User } from "./entity/user-entity";
 import { WriteUserController } from "./write/write-user.controller";
+import { ReadUserService } from "./read/read-user.service";
 
 @Module({
-  providers:[WriteUserService],
+  providers:[WriteUserService,ReadUserService],
   imports:[TypeOrmModule.forFeature([User])],
   controllers:[WriteUserController],
-  exports:[WriteUserService]
+  exports:[WriteUserService,ReadUserService]
 })
-export class UsersModule{}
+export class UserModule {}
