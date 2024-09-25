@@ -5,6 +5,7 @@ import { AuthenticationService } from "../auth/auth.service";
 import { ReadUserService } from "../users/read/read-user.service";
 import { User } from "../users/entity/user-entity";
 import { LoginUserDto } from "../users/dtos/login-user.dto";
+import { PasswordService } from "../auth/password/password.service";
 
 
 @Injectable()
@@ -14,11 +15,12 @@ export class UserRegistrationService {
 
     private readonly writeUserService:WriteUserService,
     private readonly authUserService:AuthenticationService,
-    private readonly readUserService: ReadUserService) {
+    private readonly readUserService: ReadUserService,
+    private readonly passwordService: PasswordService,) {
   }
 
   async signUp(createUserDto: CreateUserDto):Promise<User> {
-    /*** TODO @Transactional Integrity require to ensure atomicity,
+    /*** @Transactional Integrity require to ensure atomicity,
      ***especially if multiple database operations are involved in the signup process.**/
 
       //STEP-1: ask for the check if the email already
@@ -26,8 +28,12 @@ export class UserRegistrationService {
     if (isEmailUsed) {
       throw new UnauthorizedException("Email already exists")
     }
+
+    //Hash the userPassword
+    const userPassword:string = createUserDto.password
+    const hashedPassword:string = await this.passwordService.hashedPassword(userPassword)
     //STEP-2: ask for the creation of a new user
-   const newUser: User = await this.writeUserService.create(createUserDto)
+   const newUser: User = await this.writeUserService.create({ ...createUserDto, password: hashedPassword })
 
     //STEP-3: ultimate check Because of concurrent possible operation
     if(!newUser){

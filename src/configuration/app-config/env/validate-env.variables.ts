@@ -28,6 +28,10 @@ export class ValidateEnv {
   @IsNonEmptyString()
   APP_PREFIX:string
 
+  // **** Auth
+  @IsPositiveInt()
+  HASH_SALT_ROUND:number
+
   // **** swagger
   @IsNonEmptyString()
   SWAGGER_LICENCE_URL:string
